@@ -1,1 +1,103 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        #confirmation {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Book an Appointment</h1>
+
+    <form id="appointmentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="service">Service:</label>
+        <select id="service" name="service">
+            <option value="consultation">Consultation</option>
+            <option value="treatment">Treatment</option>
+            <option value="followup">Follow-up</option>
+        </select>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmation" style="display:none;">
+        <h2>Appointment Confirmed!</h2>
+        <p>Thank you for booking an appointment. We will contact you shortly to confirm the details.</p>
+        <div id="confirmationDetails"></div>
+    </div>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from actually submitting
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            const confirmationDetails = document.getElementById('confirmationDetails');
+            confirmationDetails.innerHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Date:</strong> ${date}</p>
+                <p><strong>Time:</strong> ${time}</p>
+                <p><strong>Service:</strong> ${service}</p>
+                <p><strong>Message:</strong> ${message}</p>
+            `;
+
+            document.getElementById('appointmentForm').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+
+            // In a real application, you would send this data to a server
+            // using AJAX or fetch to store it in a database or send an email.
+            console.log("Appointment Data:", { name, email, date, time, service, message });
+        });
+    </script>
+
+</body>
+</html>
