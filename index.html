@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Pet Grooming Appointment</title>
+    <title>Pet Grooming Appointment | PET KINGDOM</title>
     <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="logo-container">
-            <img src="petkingdom logo.png" alt="PET KINGDOM Logo" class="logo">
+            <img src="petkingdom_logo.png" alt="PET KINGDOM Logo" class="logo">
             <div class="title-container">
                 <h1>PET KINGDOM</h1>
                 <p class="tagline">Where Dogs And Cats Reign</p>
@@ -17,9 +18,10 @@
         </div>
     </header>
 
+    <!-- Booking Form -->
     <div class="container">
         <h2>Book a Pet Grooming Appointment</h2>
-        <form action="status.html" method="get">
+        <form id="appointmentForm">
             <label for="ownerName">Owner's Name:</label>
             <input type="text" id="ownerName" name="ownerName" placeholder="Enter owner's name" required>
 
@@ -52,5 +54,42 @@
             <button type="submit">Book Appointment</button>
         </form>
     </div>
+
+    <!-- Confirmation Section (Initially hidden) -->
+    <div class="confirmation-card" id="confirmationCard" style="display: none;">
+        <h1>Appointment Confirmed!</h1>
+        <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
+
+        <ul>
+            <li><strong>Owner's Name:</strong> <span id="confirmOwnerName"></span></li>
+            <li><strong>Pet's Name:</strong> <span id="confirmPetName"></span></li>
+            <li><strong>Email:</strong> <span id="confirmEmail"></span></li>
+            <li><strong>Phone:</strong> <span id="confirmPhone"></span></li>
+            <li><strong>Appointment Date:</strong> <span id="confirmDate"></span></li>
+            <li><strong>Preferred Time:</strong> <span id="confirmTime"></span></li>
+            <li><strong>Service:</strong> <span id="confirmService"></span></li>
+            <li><strong>Additional Notes:</strong> <span id="confirmNotes"></span></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            document.getElementById('confirmOwnerName').textContent = document.getElementById('ownerName').value;
+            document.getElementById('confirmPetName').textContent = document.getElementById('petName').value;
+            document.getElementById('confirmEmail').textContent = document.getElementById('email').value;
+            document.getElementById('confirmPhone').textContent = document.getElementById('phone').value;
+            document.getElementById('confirmDate').textContent = document.getElementById('date').value;
+            document.getElementById('confirmTime').textContent = document.getElementById('time').value;
+            document.getElementById('confirmService').textContent = document.getElementById('service').value;
+            document.getElementById('confirmNotes').textContent = document.getElementById('notes').value || "N/A";
+
+            // Show confirmation and hide form
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('confirmationCard').style.display = 'block';
+        });
+    </script>
 </body>
 </html>

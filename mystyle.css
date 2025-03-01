@@ -1,55 +1,63 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background: #FFF5E1;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #FF8C00, #FFD700);
     color: #333;
     margin: 0;
     padding: 0;
-}
-
-.header {
-    background: #FFA500;
-    padding: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: left;
-    gap: 20px;
-}
-
-.logo {
-    width: 80px;
-    height: auto;
-}
-
-.title-container {
-    display: flex;
+    min-height: 100vh;
     flex-direction: column;
 }
 
-h1 {
-    font-size: 2.5em;
+/* Header */
+.header {
+    background-color: #FF8C00;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 60px;
+}
+
+.title-container h1 {
+    font-size: 2rem;
     margin: 0;
-    color: #FFFFFF;
 }
 
 .tagline {
-    font-size: 1.2em;
-    color: #FFF5E1;
-    font-style: italic;
+    font-size: 1.2rem;
+    margin: 0;
 }
 
+/* Form Container */
 .container {
-    background: #FFFFFF;
+    background: white;
     padding: 30px;
-    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
+    color: #FF8C00;
     text-align: center;
-    color: #FFA500;
+    margin-bottom: 20px;
 }
 
 form {
@@ -64,29 +72,47 @@ label {
 }
 
 input, select, textarea {
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #FFA500;
-    border-radius: 5px;
-}
-
-textarea {
-    resize: none;
-    height: 100px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
 button {
-    background: #FFA500;
-    color: #FFFFFF;
-    padding: 12px;
-    font-size: 1.2em;
+    background-color: #FF8C00;
+    color: white;
     border: none;
-    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
-
 }
 
 button:hover {
-    background: #FF8C00;
+    background-color: #E07B00;
+}
+
+/* Confirmation Card */
+.confirmation-card {
+    background: #FFF7E6;
+    border-left: 8px solid #FF8C00;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-card h1 {
+    color: #FF8C00;
+}
+
+.confirmation-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.confirmation-card li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
