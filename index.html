@@ -18,79 +18,23 @@
         </div>
     </header>
 
-    <!-- Booking Form -->
-    <div class="container">
-        <h2>Book a Pet Grooming Appointment</h2>
-        <form id="appointmentForm">
-            <label for="ownerName">Owner's Name:</label>
-            <input type="text" id="ownerName" name="ownerName" placeholder="Enter owner's name" required>
-
-            <label for="petName">Pet's Name:</label>
-            <input type="text" id="petName" name="petName" placeholder="Enter pet's name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter email address" required>
-
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
-
-            <label for="date">Appointment Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Preferred Time:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="service">Select Service:</label>
-            <select id="service" name="service" required>
-                <option value="Bath">Bath</option>
-                <option value="Full Grooming">Full Grooming</option>
-                <option value="Nail Trimming">Nail Trimming</option>
-                <option value="Teeth Cleaning">Teeth Cleaning</option>
-            </select>
-
-            <label for="notes">Additional Notes (optional):</label>
-            <textarea id="notes" name="notes" rows="4" placeholder="Add any extra details..."></textarea>
-
-            <!-- Added spacing -->
-            <br><br>
-
-            <button type="submit" class="submit-button">Book Appointment</button>
-        </form>
-    </div>
-
-    <!-- Confirmation Section -->
-    <div class="confirmation-card" id="confirmationCard" style="display: none;">
+    <!-- Confirmation Card -->
+    <div class="confirmation-card">
         <h1>Appointment Confirmed!</h1>
         <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
 
-        <ul>
-            <li><strong>Owner's Name:</strong> <span id="confirmOwnerName"></span></li>
-            <li><strong>Pet's Name:</strong> <span id="confirmPetName"></span></li>
-            <li><strong>Email:</strong> <span id="confirmEmail"></span></li>
-            <li><strong>Phone:</strong> <span id="confirmPhone"></span></li>
-            <li><strong>Appointment Date:</strong> <span id="confirmDate"></span></li>
-            <li><strong>Preferred Time:</strong> <span id="confirmTime"></span></li>
-            <li><strong>Service:</strong> <span id="confirmService"></span></li>
-            <li><strong>Additional Notes:</strong> <span id="confirmNotes"></span></li>
-        </ul>
+        <div class="appointment-details">
+            <ul>
+                <li><strong>Owner's Name:</strong> Christina Prado</li>
+                <li><strong>Pet's Name:</strong> Lily</li>
+                <li><strong>Email:</strong> cbprado@student.apc.edu.ph</li>
+                <li><strong>Phone:</strong> 09123456789</li>
+                <li><strong>Appointment Date:</strong> 2025-03-06</li>
+                <li><strong>Preferred Time:</strong> 13:10</li>
+                <li><strong>Service:</strong> Full Grooming</li>
+                <li><strong>Additional Notes:</strong> Lily bites.</li>
+            </ul>
+        </div>
     </div>
-
-    <script>
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            document.getElementById('confirmOwnerName').textContent = document.getElementById('ownerName').value;
-            document.getElementById('confirmPetName').textContent = document.getElementById('petName').value;
-            document.getElementById('confirmEmail').textContent = document.getElementById('email').value;
-            document.getElementById('confirmPhone').textContent = document.getElementById('phone').value;
-            document.getElementById('confirmDate').textContent = document.getElementById('date').value;
-            document.getElementById('confirmTime').textContent = document.getElementById('time').value;
-            document.getElementById('confirmService').textContent = document.getElementById('service').value;
-            document.getElementById('confirmNotes').textContent = document.getElementById('notes').value || "N/A";
-
-            document.querySelector('.container').style.display = 'none';
-            document.getElementById('confirmationCard').style.display = 'block';
-        });
-    </script>
 </body>
 </html>
