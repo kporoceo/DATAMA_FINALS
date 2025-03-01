@@ -19,56 +19,63 @@
     </header>
 
     <!-- Booking Form -->
-    <div class="container" id="formContainer">
-        <h2>Book an Appointment</h2>
-        <form id="appointmentForm" novalidate>
-            <!-- Owner and Pet Information -->
-            <label for="ownerName">Owner's Name:</label>
-            <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
+    <h2>Book an Appointment</h2>
+<form id="appointmentForm">
+  <label for="ownerName">Owner's Name:</label>
+  <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
 
-            <label for="petName">Pet's Name:</label>
-            <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
+  <label for="petName">Pet's Name:</label>
+  <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
 
-            <label for="petType">Pet Type:</label>
-            <select id="petType" name="petType" required>
-                <option value="">Select Pet Type</option>
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-            </select>
+  <label for="petType">Pet Type:</label>
+  <select id="petType" name="petType" required>
+    <option value="Dog">Dog</option>
+    <option value="Cat">Cat</option>
+    <option value="Other">Other</option>
+  </select>
 
-            <!-- Service Selection -->
-            <label for="serviceCategory">Service Category:</label>
-            <select id="serviceCategory" name="serviceCategory" required>
-                <option value="">Select Service Category</option>
-                <option value="Royal Grooming">Royal Grooming</option>
-                <option value="Bath & Blow Dry">Bath & Blow Dry</option>
-                <option value="Add-Ons">Add-Ons</option>
-                <option value="Ala Carte">Ala Carte</option>
-                <option value="Boarding Services">Boarding Services</option>
-            </select>
+  <!-- New Service Dropdowns -->
+  <label for="royalGrooming">Royal Grooming:</label>
+  <select id="royalGrooming" name="royalGrooming">
+    <option value="">Select a Service</option>
+    <option value="Full Groom">Full Groom</option>
+    <option value="Mini Groom">Mini Groom</option>
+  </select>
 
-            <label for="serviceType">Service Type:</label>
-            <select id="serviceType" name="serviceType" required>
-                <option value="">Select a Service</option>
-            </select>
+  <label for="bathBlowDry">Bath & Blow Dry:</label>
+  <select id="bathBlowDry" name="bathBlowDry">
+    <option value="">Select a Service</option>
+    <option value="Basic Bath">Basic Bath</option>
+    <option value="Luxury Bath">Luxury Bath</option>
+  </select>
 
-            <!-- Contact Information -->
-            <label for="phoneNumber">Phone Number:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+  <label for="addOns">Add-ons:</label>
+  <select id="addOns" name="addOns">
+    <option value="">Select an Add-on</option>
+    <option value="Nail Clipping">Nail Clipping</option>
+    <option value="Teeth Cleaning">Teeth Cleaning</option>
+  </select>
 
-            <label for="emailAddress">Email Address:</label>
-            <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required>
+  <label for="aLaCarte">A La Carte:</label>
+  <select id="aLaCarte" name="aLaCarte">
+    <option value="">Select a Service</option>
+    <option value="Ear Cleaning">Ear Cleaning</option>
+    <option value="Paw Pad Treatment">Paw Pad Treatment</option>
+  </select>
 
-            <!-- Appointment Date -->
-            <label for="appointmentDate">Appointment Date:</label>
-            <input type="date" id="appointmentDate" name="appointmentDate" required>
+  <label for="boardingServices">Boarding Services:</label>
+  <select id="boardingServices" name="boardingServices">
+    <option value="">Select a Service</option>
+    <option value="Overnight Stay">Overnight Stay</option>
+    <option value="Daycare">Daycare</option>
+  </select>
 
-            <label for="notes">Additional Notes (optional):</label>
-            <textarea id="notes" name="notes" rows="4" placeholder="Add any extra details..."></textarea>
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
 
-            <button type="submit">Book Appointment</button>
-        </form>
-    </div>
+  <button type="submit">Submit</button>
+</form>
+
 
     <!-- Confirmation Card -->
     <div class="card" id="confirmationCard">
@@ -87,6 +94,6 @@
         </ul>
     </div>
 
-    
+
 </body>
 </html>
