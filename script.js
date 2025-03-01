@@ -4,27 +4,29 @@ const serviceData = {
         "Small (1.0kg - 6.9kg) - 550",
         "Medium (7.0kg - 9.9kg) - 650",
         "Large (10.0kg - 15.9kg) - 800",
-        "Extra Large (16.0kg - 40.0kg) - 975"
+        "Extra Large (16.0kg - 40.0kg) - 975",
+        "None"
     ],
-    "Bath & Blow Dry": [
+    "Bath and Blow Only": [
         "Small (1.0kg - 6.9kg) - 300",
         "Medium (7.0kg - 9.9kg) - 350",
         "Large (10.0kg - 15.9kg) - 500",
-        "Extra Large (16.0kg - 40.0kg) - 650"
+        "Extra Large (16.0kg - 40.0kg) - 650",
+        "None"
     ],
     "Sanitary Cut": [
-        "None - 0",
-        "Small - 150",
-        "Medium - 200",
-        "Large - 250",
-        "Extra Large - 300"
+        "Small (1.0kg - 6.9kg) - 150",
+        "Medium (7.0kg - 9.9kg) - 200",
+        "Large (10.0kg - 15.9kg) - 250",
+        "Extra Large (16.0kg - 40.0kg) - 300",
+        "None"
     ],
     "Face Trim": [
-        "None - 0",
-        "Small - 150",
-        "Medium - 200",
-        "Large - 250",
-        "Extra Large - 300"
+        "Small (1.0kg - 6.9kg) - 150",
+        "Medium (7.0kg - 9.9kg) - 200",
+        "Large (10.0kg - 15.9kg) - 250",
+        "Extra Large (16.0kg - 40.0kg) - 300",
+        "None"
     ],
     "A La Carte": [
         "Anal Sac - 99",
@@ -33,10 +35,10 @@ const serviceData = {
         "Tooth Brushing (Excluding Product) - 99",
         "Mouth Wash - 99",
         "Tear Stain Removal - 99",
-        "Frontline Application - 99"
+        "Frontline Application - 99",
+        "None"
     ],
     "Boarding Services": [
-        "None - 0",
         "With Grooming - 50/hr",
         "Without Grooming - 100",
         "8 Hour Package - 500"
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Populate service options
 function populateDropdowns() {
     populateServices("Royal Grooming", document.getElementById("royalGrooming"));
-    populateServices("Bath & Blow Dry", document.getElementById("bathBlowDry"));
+    populateServices("Bath and Blow Only", document.getElementById("bathBlowDry"));
     populateServices("Sanitary Cut", document.getElementById("sanitaryCut"));
     populateServices("Face Trim", document.getElementById("faceTrim"));
     populateServices("A La Carte", document.getElementById("aLaCarte"));
@@ -129,7 +131,7 @@ function displayConfirmation(data) {
 
         Services:
         - Royal Grooming: ${data.royalGrooming || "None"}
-        - Bath & Blow Dry: ${data.bathBlowDry || "None"}
+        - Bath and Blow Only: ${data.bathBlowDry || "None"}
 
         Add-Ons:
         - Sanitary Cut: ${data.sanitaryCut || "None"}

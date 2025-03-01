@@ -9,7 +9,7 @@ body {
 
 /* Header */
 .header {
-    background-color: #BB6509;
+    background-color: #ec810e;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@ body {
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #BB6509;
+    color: #ec810e;
 }
 
 /* Form Styles */
@@ -59,7 +59,7 @@ form label {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
-    color: #BB6509;
+    color: #ec810e;
 }
 
 form input,
@@ -73,7 +73,7 @@ form select {
 }
 
 form button {
-    background-color: #BB6509;
+    background-color: #ec810e;
     color: white;
     border: none;
     padding: 15px;
@@ -85,7 +85,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #9A5407;
+    background-color: #ec810e;
 }
 
 /* Confirmation Card */
