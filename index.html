@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Grooming Appointment | PET KINGDOM</title>
+    <title>Pet Kingdom - Book an Appointment</title>
     <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="logo-container">
-            <img src="petkingdom logo.png" alt="PET KINGDOM Logo" class="logo">
+            <img src="petkingdom logo.png" alt="Pet Kingdom Logo" class="logo">
             <div class="title-container">
                 <h1>PET KINGDOM</h1>
                 <p class="tagline">Where Dogs And Cats Reign</p>
@@ -18,23 +18,54 @@
         </div>
     </header>
 
+    <!-- Booking Form -->
+    <div class="container" id="formContainer">
+        <h2>Book an Appointment</h2>
+        <form id="appointmentForm">
+            <label for="ownerName">Owner's Name:</label>
+            <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
+
+            <label for="petName">Pet's Name:</label>
+            <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
+
+            <label for="petType">Pet Type:</label>
+            <select id="petType" name="petType" required>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+
+            <label for="serviceType">Service Type:</label>
+            <select id="serviceType" name="serviceType" required>
+                <option value="Grooming">Grooming</option>
+                <option value="Nail Trim">Nail Trim</option>
+                <option value="Spa">Spa</option>
+            </select>
+
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+            <label for="notes">Additional Notes (optional):</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Add any extra details..."></textarea>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+    </div>
+
     <!-- Confirmation Card -->
-    <div class="confirmation-card">
-        <h1>Appointment Confirmed!</h1>
+    <div class="card" id="confirmationCard">
+        <h2>Appointment Confirmed!</h2>
         <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
 
-        <div class="appointment-details">
-            <ul>
-                <li><strong>Owner's Name:</strong> Christina Prado</li>
-                <li><strong>Pet's Name:</strong> Lily</li>
-                <li><strong>Email:</strong> cbprado@student.apc.edu.ph</li>
-                <li><strong>Phone:</strong> 09123456789</li>
-                <li><strong>Appointment Date:</strong> 2025-03-06</li>
-                <li><strong>Preferred Time:</strong> 13:10</li>
-                <li><strong>Service:</strong> Full Grooming</li>
-                <li><strong>Additional Notes:</strong> Lily bites.</li>
-            </ul>
-        </div>
+        <ul>
+            <li><strong>Owner's Name:</strong> <span id="confirmOwnerName"></span></li>
+            <li><strong>Pet's Name:</strong> <span id="confirmPetName"></span></li>
+            <li><strong>Pet Type:</strong> <span id="confirmPetType"></span></li>
+            <li><strong>Service:</strong> <span id="confirmServiceType"></span></li>
+            <li><strong>Appointment Date:</strong> <span id="confirmAppointmentDate"></span></li>
+            <li><strong>Additional Notes:</strong> <span id="confirmNotes"></span></li>
+        </ul>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

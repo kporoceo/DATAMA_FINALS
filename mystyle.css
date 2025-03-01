@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #FFF8F0;
@@ -6,6 +7,7 @@ body {
     padding: 0;
 }
 
+/* Header */
 .header {
     background-color: #FF8C00;
     padding: 20px;
@@ -35,44 +37,79 @@ body {
     font-size: 1.2rem;
 }
 
-.confirmation-card {
+/* Container */
+.container {
     background: white;
-    padding: 30px;
-    margin: 50px auto;
     max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #FF8C00;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #FF8C00;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e67e00;
+}
+
+/* Confirmation Card */
+.card {
+    display: none;
+    background: white;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 2px solid #FF8C00;
 }
 
-.confirmation-card h1 {
+.card h2 {
     color: #FF8C00;
     text-align: center;
-    font-size: 2rem;
 }
 
-.confirmation-card p {
-    font-size: 1.1rem;
+.card p {
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
 }
 
-.appointment-details {
-    background-color: #FFF8F0;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.appointment-details ul {
+ul {
     list-style-type: none;
     padding: 0;
 }
 
-.appointment-details li {
+li {
     font-size: 1.1rem;
     margin-bottom: 10px;
 }
 
-.appointment-details strong {
+strong {
     color: #FF8C00;
 }
