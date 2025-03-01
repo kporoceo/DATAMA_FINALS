@@ -1,42 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('appointmentForm');
-    const confirmationCard = document.querySelector('.card .details');
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("appointmentForm");
+    const confirmationCard = document.querySelector(".card");
+    const details = document.querySelector(".details");
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent form submission
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-        // Get form data
-        const ownerName = document.getElementById('ownerName').value;
-        const phoneNumber = document.getElementById('phoneNumber').value;
-        const emailAddress = document.getElementById('emailAddress').value;
-        const petName = document.getElementById('petName').value;
-        const petType = document.getElementById('petType').value;
-        const royalGrooming = document.getElementById('royalGrooming').value;
-        const bathBlowDry = document.getElementById('bathBlowDry').value;
-        const sanitaryCut = document.getElementById('sanitaryCut').value;
-        const faceTrim = document.getElementById('faceTrim').value;
-        const aLaCarte = document.getElementById('aLaCarte').value;
-        const boardingServices = document.getElementById('boardingServices').value;
+        // Collect form data
+        const formData = new FormData(form);
+        const appointmentDetails = {
+            ownerName: formData.get("ownerName"),
+            phoneNumber: formData.get("phoneNumber"),
+            emailAddress: formData.get("emailAddress"),
+            petName: formData.get("petName"),
+            petType: formData.get("petType"),
+            royalGrooming: formData.get("royalGrooming"),
+            bathBlowDry: formData.get("bathBlowDry"),
+            sanitaryCut: formData.get("sanitaryCut"),
+            faceTrim: formData.get("faceTrim"),
+            aLaCarte: formData.get("aLaCarte"),
+            boardingServices: formData.get("boardingServices"),
+        };
 
-        // Format and display the confirmation details
-        confirmationCard.innerHTML = `
-            <p><strong>Owner's Name:</strong> ${ownerName}</p>
-            <p><strong>Phone:</strong> ${phoneNumber}</p>
-            <p><strong>Email:</strong> ${emailAddress}</p>
-            <p><strong>Pet's Name:</strong> ${petName}</p>
-            <p><strong>Pet Type:</strong> ${petType}</p>
-            <p><strong>Royal Grooming:</strong> ${royalGrooming}</p>
-            <p><strong>Bath & Blow Dry:</strong> ${bathBlowDry}</p>
-            <p><strong>Sanitary Cut:</strong> ${sanitaryCut}</p>
-            <p><strong>Face Trim:</strong> ${faceTrim}</p>
-            <p><strong>A La Carte:</strong> ${aLaCarte}</p>
-            <p><strong>Boarding Services:</strong> ${boardingServices}</p>
+        // Populate confirmation card with details
+        details.innerHTML = `
+            <p><strong>Owner's Name:</strong> ${appointmentDetails.ownerName}</p>
+            <p><strong>Phone Number:</strong> ${appointmentDetails.phoneNumber}</p>
+            <p><strong>Email:</strong> ${appointmentDetails.emailAddress}</p>
+            <p><strong>Pet's Name:</strong> ${appointmentDetails.petName}</p>
+            <p><strong>Pet Type:</strong> ${appointmentDetails.petType}</p>
+            <p><strong>Royal Grooming:</strong> ${appointmentDetails.royalGrooming || "None"}</p>
+            <p><strong>Bath & Blow Dry:</strong> ${appointmentDetails.bathBlowDry || "None"}</p>
+            <p><strong>Sanitary Cut:</strong> ${appointmentDetails.sanitaryCut || "None"}</p>
+            <p><strong>Face Trim:</strong> ${appointmentDetails.faceTrim || "None"}</p>
+            <p><strong>A La Carte:</strong> ${appointmentDetails.aLaCarte || "None"}</p>
+            <p><strong>Boarding Services:</strong> ${appointmentDetails.boardingServices || "None"}</p>
         `;
 
-        // Show the confirmation card
-        document.querySelector('.card').style.display = 'block';
+        // Show confirmation card
+        confirmationCard.style.display = "block";
 
-        // Optional: Clear the form after submission
+        // Optional: Clear form after submission
         form.reset();
     });
 });
