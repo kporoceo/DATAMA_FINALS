@@ -1,32 +1,45 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #F9F4EC;
+    color: #333;
     margin: 0;
     padding: 0;
-    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #f77b19;
 }
 
 /* Header */
 .header {
-    background-color: #BB6509;
+    background-color: #f77b19;
     color: white;
     padding: 20px;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-bottom: 5px solid #9A5307;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .logo {
     width: 80px;
     height: auto;
-    margin-right: 15px;
+    border-radius: 50%;
 }
 
 .title-container h1 {
@@ -36,90 +49,64 @@ body {
 
 .tagline {
     margin: 0;
-    font-size: 1rem;
     font-style: italic;
 }
 
-/* Container */
-.container {
-    background-color: white;
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Form Styles */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
-/* Form Styling */
-h2 {
-    color: #BB6509;
-    text-align: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
 fieldset {
-    border: 2px solid #BB6509;
-    border-radius: 10px;
+    border: 2px solid #f77b19;
     padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 legend {
     font-weight: bold;
-    color: #BB6509;
+    color: #f77b19;
     padding: 0 10px;
 }
 
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #BB6509;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-button {
-    background-color: #BB6509;
+button[type="submit"] {
+    background-color: #f77b19;
     color: white;
-    padding: 15px;
-    font-size: 1.2rem;
     border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #9b4f07;
+button[type="submit"]:hover {
+    background-color: #9A5307;
 }
 
 /* Confirmation Card */
 .card {
-    background-color: #F9F4EC;
-    padding: 30px;
-    border: 2px solid #BB6509;
+    background-color: #fff;
+    border: 2px solid #f77b19;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
 
 .card h2 {
-    color: #BB6509;
-}
-
-.card p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    color: #f77b19;
 }
 
 .card ul {
@@ -127,29 +114,10 @@ button:hover {
     padding: 0;
 }
 
-.card ul li {
-    background-color: #fff;
-    border: 1px solid #BB6509;
-    border-radius: 5px;
-    padding: 10px;
+.card li {
+    background: #F9F4EC;
     margin-bottom: 10px;
-    text-align: left;
-}
-
-@media (max-width: 600px) {
-    .title-container h1 {
-        font-size: 2rem;
-    }
-
-    .tagline {
-        font-size: 0.9rem;
-    }
-
-    .container {
-        padding: 20px;
-    }
-
-    button {
-        font-size: 1rem;
-    }
+    padding: 10px;
+    border: 1px solid #f77b19;
+    border-radius: 5px;
 }
