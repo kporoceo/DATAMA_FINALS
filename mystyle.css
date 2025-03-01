@@ -1,149 +1,144 @@
 /* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F9F4EC;
-    color: #333;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #F9F4EC; /* Light cream background */
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
 }
 
 /* Header */
 .header {
-    background-color: #ec810e;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #f77b19;
     color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
 .logo-container {
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 
 .logo {
-    height: 80px;
-    margin-right: 15px;
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
 }
 
 .title-container h1 {
     font-size: 2.5rem;
-    margin: 0;
+    margin-bottom: 5px;
 }
 
 .tagline {
-    font-size: 1.2rem;
-    margin: 0;
+    font-size: 1rem;
+    font-style: italic;
 }
 
-/* Container */
+/* Booking Form */
 .container {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 30px auto;
-    animation: fadeIn 0.5s ease-in-out;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 h2 {
     text-align: center;
+    color: #f77b19;
     margin-bottom: 20px;
-    color: #ec810e;
 }
 
-/* Form Styles */
-form label {
-    font-weight: bold;
+label {
     display: block;
     margin-bottom: 8px;
-    color: #ec810e;
+    font-weight: bold;
 }
 
-form input,
-form select {
+input, select {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 5px;
 }
 
-form button {
-    background-color: #ec810e;
+button {
+    background-color: #f77b19;
     color: white;
+    padding: 12px;
+    font-size: 1rem;
     border: none;
-    padding: 15px;
-    font-size: 1.2rem;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s;
+    transition: background-0.3s;
 }
 
-form button:hover {
-    background-color: #ec810e;
+button:hover {
+    background-color: #f77b19;
+}
+
+/* Add-Ons Section */
+h3 {
+    margin-bottom: 10px;
+    color: #f77b19;
 }
 
 /* Confirmation Card */
 .card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: none;
-    background-color: white;
-    border: 2px solid #BB6509;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    animation: slideIn 0.5s ease-in-out;
+    text-align: left;
 }
 
 .card h2 {
-    color: #BB6509;
     text-align: center;
+    color: #f77b19;
     margin-bottom: 20px;
 }
 
-.card ul {
-    list-style-type: none;
-    padding: 0;
+.details p {
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
-.card li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+.details strong {
+    color: #f77b19;
 }
 
-.card li:last-child {
-    border-bottom: none;
-}
-
-.card strong {
-    color: #333;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        width: 60px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    .title-container h1 {
+        font-size: 2rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .container, .card {
+        padding: 20px;
+    }
+
+    button {
+        font-size: 0.9rem;
     }
 }
