@@ -7,33 +7,29 @@
     <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
-
-    <!-- Header with logo and title -->
-    <header class="header">
+    <div class="header">
         <img src="petkingdom logo.png" alt="PetKingdom PH Logo" class="logo">
-        <h1>PET KINGDOM</h1>
-        <p>Where Dogs And Cats Reign</p>
-    </header>
+    </div>
 
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <ul>
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#appointmentForm">Book Appointment</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- About Us Section -->
     <section id="about" class="about-us">
         <h2>About Us</h2>
+        <h3>Background of the Company</h3>
         <p>PetKingdom PH was established on October 2, 2021, by a group of siblings and cousins who share a deep love for animals. Located at San Lorenzo Place Mall, 2F, the store serves as a one-stop shop for pet owners, offering a wide range of high-quality pet supplies along with pet grooming and pet boarding.</p>
-
         <p>In addition to its physical store, PetKingdom PH is available online where customers can set grooming appointments via Facebook & Instagram and purchase supplies conveniently through Shopee. Committed to the well-being of pets and the convenience of their owners, PetKingdom PH continues to grow as a trusted destination for pet care and supplies.</p>
 
-        <h3>Our Vision</h3>
+        <h3>Vision</h3>
         <p>To be the leading pet care destination in the Philippines, providing a complete and convenient experience for pet owners while ensuring the happiness, health, and well-being of all pets.</p>
 
-        <h3>Our Mission</h3>
+        <h3>Mission</h3>
         <ul>
             <li>To offer a wide selection of premium pet supplies, ensuring pets have everything they need to thrive.</li>
             <li>To provide professional and compassionate pet grooming services that keep pets healthy and well-groomed.</li>
@@ -42,45 +38,40 @@
         </ul>
     </section>
 
-    <!-- Appointment Form -->
-    <section id="appointmentForm">
-        <h2>Book a Pet Grooming Appointment</h2>
+    <h2>Book a Pet Grooming Appointment</h2>
+    <form id="appointmentForm">
+        <label for="ownerName">Owner's Name:</label>
+        <input type="text" id="ownerName" name="ownerName" required>
 
-        <form id="appointmentForm">
-            <label for="ownerName">Owner's Name:</label>
-            <input type="text" id="ownerName" name="ownerName" required>
+        <label for="petName">Pet's Name:</label>
+        <input type="text" id="petName" name="petName" required>
 
-            <label for="petName">Pet's Name:</label>
-            <input type="text" id="petName" name="petName" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" name="date" required>
 
-            <label for="date">Appointment Date:</label>
-            <input type="date" id="date" name="date" required>
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required>
 
-            <label for="time">Preferred Time:</label>
-            <input type="time" id="time" name="time" required>
+        <label for="service">Select Service:</label>
+        <select id="service" name="service">
+            <option value="bath">Bath</option>
+            <option value="haircut">Haircut</option>
+            <option value="nail-trim">Nail Trim</option>
+            <option value="full-grooming">Full Grooming Package</option>
+        </select>
 
-            <label for="service">Select Service:</label>
-            <select id="service" name="service">
-                <option value="bath">Bath</option>
-                <option value="haircut">Haircut</option>
-                <option value="nail-trim">Nail Trim</option>
-                <option value="full-grooming">Full Grooming Package</option>
-            </select>
+        <label for="message">Additional Notes:</label>
+        <textarea id="message" name="message" rows="4"></textarea>
 
-            <label for="message">Additional Notes:</label>
-            <textarea id="message" name="message" rows="4"></textarea>
+        <button type="submit">Book Appointment</button>
+    </form>
 
-            <button type="submit">Book Appointment</button>
-        </form>
-    </section>
-
-    <!-- Confirmation Message -->
     <div id="confirmation" style="display:none;">
         <h2>Appointment Confirmed!</h2>
         <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
@@ -88,6 +79,16 @@
     </div>
 
     <script>
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
         document.getElementById('appointmentForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -116,6 +117,5 @@
             document.getElementById('confirmation').style.display = 'block';
         });
     </script>
-
 </body>
 </html>
