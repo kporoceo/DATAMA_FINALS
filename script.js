@@ -8,9 +8,18 @@ const serviceData = {
 };
 
 // Populate dropdowns
+function populateDropdowns() {
+    populateServices("Royal Grooming", document.getElementById("royalGrooming"));
+    populateServices("Bath & Blow Dry", document.getElementById("bathBlowDry"));
+    populateServices("Add-ons", document.getElementById("addOns"));
+    populateServices("A La Carte", document.getElementById("aLaCarte"));
+    populateServices("Boarding Services", document.getElementById("boardingServices"));
+}
+
 function populateServices(category, selectElement) {
+    if (!selectElement) return; // Ensure element exists
     selectElement.innerHTML = '<option value="">Select a Service</option>';
-    serviceData[category]?.forEach(service => {
+    serviceData[category].forEach(service => {
         const option = document.createElement("option");
         option.value = service;
         option.textContent = service;
@@ -18,13 +27,8 @@ function populateServices(category, selectElement) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    populateServices("Royal Grooming", document.getElementById("royalGrooming"));
-    populateServices("Bath & Blow Dry", document.getElementById("bathBlowDry"));
-    populateServices("Add-ons", document.getElementById("addOns"));
-    populateServices("A La Carte", document.getElementById("aLaCarte"));
-    populateServices("Boarding Services", document.getElementById("boardingServices"));
-});
+// Wait for full DOM load
+document.addEventListener("DOMContentLoaded", populateDropdowns);
 
 // Form submission
 document.getElementById("appointmentForm").addEventListener("submit", function (e) {
@@ -33,6 +37,7 @@ document.getElementById("appointmentForm").addEventListener("submit", function (
     document.getElementById("confirmPetName").textContent = this.petName.value;
     document.getElementById("confirmPetType").textContent = this.petType.value;
     document.getElementById("confirmPhoneNumber").textContent = this.phoneNumber.value;
+
     document.getElementById("confirmServiceType").innerHTML = `
         Royal Grooming: ${this.royalGrooming.value || "None"}<br>
         Bath & Blow Dry: ${this.bathBlowDry.value || "None"}<br>
