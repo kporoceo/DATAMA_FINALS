@@ -3,71 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PET KINGDOM - Pet Grooming Appointments</title>
+    <title>Book a Pet Grooming Appointment</title>
     <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="petkingdom logo.png" alt="PET KINGDOM Logo">
-            <h1>PET KINGDOM</h1>
-        </div>
-        <p class="tagline">Where Dogs And Cats Reign</p>
-    </header>
-
-    <section class="container">
-        <h2>Book a Pet Grooming Appointment</h2>
-        <form class="appointment-form" id="appointmentForm" action="status.html" method="GET">
+    <div class="container">
+        <h1>Book a Pet Grooming Appointment</h1>
+        <form action="status.html" method="get">
             <label for="ownerName">Owner's Name:</label>
-            <input type="text" id="ownerName" name="ownerName" required>
+            <input type="text" id="ownerName" name="ownerName" placeholder="Enter owner's name" required>
 
             <label for="petName">Pet's Name:</label>
-            <input type="text" id="petName" name="petName" required>
+            <input type="text" id="petName" name="petName" placeholder="Enter pet's name" required>
 
-            <label for="contactNumber">Contact Number:</label>
-            <input type="tel" id="contactNumber" name="contactNumber" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter email address" required>
 
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
 
-            <label for="date">Preferred Date:</label>
+            <label for="date">Appointment Date:</label>
             <input type="date" id="date" name="date" required>
+
+            <label for="time">Preferred Time:</label>
+            <input type="time" id="time" name="time" required>
 
             <label for="service">Select Service:</label>
             <select id="service" name="service" required>
-                <option value="grooming">Grooming</option>
-                <option value="nail-trim">Nail Trim</option>
-                <option value="bath">Bath</option>
+                <option value="Bath">Bath</option>
+                <option value="Full Grooming">Full Grooming</option>
+                <option value="Nail Trimming">Nail Trimming</option>
+                <option value="Teeth Cleaning">Teeth Cleaning</option>
             </select>
 
-            <button type="submit">Submit Appointment</button>
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" name="notes" placeholder="Add any extra details..."></textarea>
+
+            <button type="submit">Book Appointment</button>
         </form>
-    </section>
-</body>
-</html>
-
-status.html:
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment Status - PET KINGDOM</title>
-    <link rel="stylesheet" href="mystyle.css">
-</head>
-<body>
-    <header>
-        <div class="logo-container">
-            <img src="petkingdom logo.png" alt="PET KINGDOM Logo">
-            <h1>PET KINGDOM</h1>
-        </div>
-        <p class="tagline">Where Dogs And Cats Reign</p>
-    </header>
-
-    <section class="container">
-        <h2>Appointment Submitted Successfully!</h2>
-        <p class="status">Appointment Status: Pending</p>
-    </section>
+    </div>
 </body>
 </html>
