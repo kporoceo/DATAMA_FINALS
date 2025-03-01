@@ -33,30 +33,29 @@ body {
 }
 
 .tagline {
-    font-style: italic;
+    font-style: arial;
     font-size: 1.2rem;
 }
 
 /* Container */
 .container {
     background: white;
-    max-width: 600px;
+    max-width: 700px;
     margin: 30px auto;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+h2, h3 {
     text-align: center;
     color: #FF8C00;
     margin-bottom: 20px;
 }
 
 h3 {
-    margin-top: 30px;
-    color: #FF8C00;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    margin-top: 40px;
 }
 
 p {
@@ -71,7 +70,7 @@ label {
 
 input, select, textarea, button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -80,9 +79,10 @@ input, select, textarea, button {
 button {
     background-color: #FF8C00;
     color: white;
-    font-size: 1rem;
+    font-size: 1.1rem;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -93,7 +93,7 @@ button:hover {
 .card {
     display: none;
     background: white;
-    max-width: 600px;
+    max-width: 700px;
     margin: 30px auto;
     padding: 30px;
     border-radius: 10px;
@@ -106,9 +106,10 @@ button:hover {
     text-align: center;
 }
 
-.card p {
+.card p, .card ul li {
     text-align: center;
     font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 ul {
@@ -124,4 +125,41 @@ ul li {
 
 strong {
     color: #FF8C00;
+}
+
+/* Service List Styles */
+.service-list {
+    border: 1px solid #FF8C00;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #FFF5E1;
+}
+
+.service-list h3 {
+    font-size: 1.3rem;
+    color: #FF8C00;
+    margin-bottom: 15px;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #FF8C00;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.service-price {
+    color: #FF8C00;
+    font-weight: bold;
 }

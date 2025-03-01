@@ -1,43 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Ensure the confirmation card is hidden initially
-    document.getElementById('confirmationCard').style.display = 'none';
+document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    document.getElementById('appointmentForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+    // Get form values
+    const ownerName = document.getElementById('ownerName').value;
+    const petName = document.getElementById('petName').value;
+    const petType = document.getElementById('petType').value;
+    const serviceType = document.getElementById('serviceType').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const emailAddress = document.getElementById('emailAddress').value;
+    const appointmentDate = document.getElementById('appointmentDate').value;
+    const notes = document.getElementById('notes').value || 'None';
 
-        // Get form values
-        const ownerName = document.getElementById('ownerName').value.trim();
-        const petName = document.getElementById('petName').value.trim();
-        const petType = document.getElementById('petType').value;
-        const serviceType = document.getElementById('serviceType').value;
-        const phoneNumber = document.getElementById('phoneNumber').value.trim();
-        const emailAddress = document.getElementById('emailAddress').value.trim();
-        const appointmentDate = document.getElementById('appointmentDate').value;
-        const notes = document.getElementById('notes').value.trim() || 'None';
+    // Extract price from serviceType value
+    const serviceDetails = serviceType.split(' - ');
+    const serviceName = serviceDetails[0];
+    const servicePrice = serviceDetails.length > 1 ? serviceDetails[serviceDetails.length - 1] : 'N/A';
 
-        // Check if all confirmation elements exist
-        const confirmFields = [
-            { id: 'confirmOwnerName', value: ownerName },
-            { id: 'confirmPetName', value: petName },
-            { id: 'confirmPetType', value: petType },
-            { id: 'confirmServiceType', value: serviceType },
-            { id: 'confirmPhoneNumber', value: phoneNumber },
-            { id: 'confirmEmailAddress', value: emailAddress },
-            { id: 'confirmAppointmentDate', value: appointmentDate },
-            { id: 'confirmNotes', value: notes }
-        ];
+    // Populate confirmation card
+    document.getElementById('confirmOwnerName').textContent = ownerName;
+    document.getElementById('confirmPetName').textContent = petName;
+    document.getElementById('confirmPetType').textContent = petType;
+    document.getElementById('confirmServiceType').textContent = serviceName;
+    document.getElementById('confirmServicePrice').textContent = servicePrice;
+    document.getElementById('confirmPhoneNumber').textContent = phoneNumber;
+    document.getElementById('confirmEmailAddress').textContent = emailAddress;
+    document.getElementById('confirmAppointmentDate').textContent = appointmentDate;
+    document.getElementById('confirmNotes').textContent = notes;
 
-        confirmFields.forEach(field => {
-            const element = document.getElementById(field.id);
-            if (element) {
-                element.textContent = field.value;
-            } else {
-                console.warn(`Element with ID '${field.id}' not found.`);
-            }
-        });
-
-        // Hide form, show confirmation
-        document.getElementById('formContainer').style.display = 'none';
-        document.getElementById('confirmationCard').style.display = 'block';
-    });
+    // Show confirmation card and hide form
+    document.getElementById('formContainer').style.display = 'none';
+    document.getElementById('confirmationCard').style.display = 'block';
 });

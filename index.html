@@ -18,101 +18,95 @@
         </div>
     </header>
 
-    <!-- Booking Form -->
     <div class="container" id="formContainer">
         <h2>Book an Appointment</h2>
         <form id="appointmentForm">
+            <!-- Owner and Pet Information -->
             <label for="ownerName">Owner's Name:</label>
             <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
-
+    
             <label for="petName">Pet's Name:</label>
             <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
-
+    
             <label for="petType">Pet Type:</label>
             <select id="petType" name="petType" required>
                 <option value="Dog">Dog</option>
                 <option value="Cat">Cat</option>
             </select>
-
+    
+            <!-- Service Selection -->
             <label for="serviceType">Service Type:</label>
             <select id="serviceType" name="serviceType" required>
-                <option value="Grooming">Grooming</option>
-                <option value="Nail Trim">Nail Trim</option>
-                <option value="Spa">Spa</option>
+                <optgroup label="Royal Grooming (Bath, Blowdry, Nail Trimming, Ear Cleaning, Basic Cut, Teeth Brushing)">
+                    <option value="Royal Grooming - Small (1.0kg to 6.9kg) - 550">Small (1.0kg to 6.9kg) - 550</option>
+                    <option value="Royal Grooming - Medium (7.0kg to 9.9kg) - 650">Medium (7.0kg to 9.9kg) - 650</option>
+                    <option value="Royal Grooming - Large (10.0kg to 15.9kg) - 800">Large (10.0kg to 15.9kg) - 800</option>
+                    <option value="Royal Grooming - Extra Large (16.0kg to 40.0kg) - 975">Extra Large (16.0kg to 40.0kg) - 975</option>
+                </optgroup>
+    
+                <optgroup label="Bath & Blow Dry">
+                    <option value="Bath & Blow Dry - Small (1.0kg to 6.9kg) - 300">Small (1.0kg to 6.9kg) - 300</option>
+                    <option value="Bath & Blow Dry - Medium (7.0kg to 9.9kg) - 350">Medium (7.0kg to 9.9kg) - 350</option>
+                    <option value="Bath & Blow Dry - Large (10.0kg to 15.9kg) - 500">Large (10.0kg to 15.9kg) - 500</option>
+                    <option value="Bath & Blow Dry - Extra Large (16.0kg to 40.0kg) - 650">Extra Large (16.0kg to 40.0kg) - 650</option>
+                </optgroup>
+    
+                <optgroup label="Add-Ons">
+                    <option value="Sanitary Cut - Small - 150">Sanitary Cut (Small) - 150</option>
+                    <option value="Sanitary Cut - Medium - 200">Sanitary Cut (Medium) - 200</option>
+                    <option value="Sanitary Cut - Large - 250">Sanitary Cut (Large) - 250</option>
+                    <option value="Sanitary Cut - Extra Large - 300">Sanitary Cut (Extra Large) - 300</option>
+    
+                    <option value="Face Trim - Small - 150">Face Trim (Small) - 150</option>
+                    <option value="Face Trim - Medium - 200">Face Trim (Medium) - 200</option>
+                    <option value="Face Trim - Large - 250">Face Trim (Large) - 250</option>
+                    <option value="Face Trim - Extra Large - 300">Face Trim (Extra Large) - 300</option>
+    
+                    <option value="Dematting - Small - 250">Dematting (Small) - 250</option>
+                    <option value="Dematting - Medium - 300">Dematting (Medium) - 300</option>
+                    <option value="Dematting - Large - 350">Dematting (Large) - 350</option>
+                    <option value="Dematting - Extra Large - 400">Dematting (Extra Large) - 400</option>
+    
+                    <option value="Medicated Shampoo - Small - 100">Medicated Shampoo (Small) - 100</option>
+                    <option value="Medicated Shampoo - Medium - 150">Medicated Shampoo (Medium) - 150</option>
+                    <option value="Medicated Shampoo - Large - 200">Medicated Shampoo (Large) - 200</option>
+                    <option value="Medicated Shampoo - Extra Large - 250">Medicated Shampoo (Extra Large) - 250</option>
+    
+                    <option value="Haircut - Small - 300">Haircut (Small) - 300</option>
+                    <option value="Haircut - Medium - 400">Haircut (Medium) - 400</option>
+                    <option value="Haircut - Large - 500">Haircut (Large) - 500</option>
+                    <option value="Haircut - Extra Large - 600">Haircut (Extra Large) - 600</option>
+                </optgroup>
+    
+                <optgroup label="Ala Carte (99 each)">
+                    <option value="Anal Sac">Anal Sac</option>
+                    <option value="Ear Cleaning">Ear Cleaning</option>
+                    <option value="Nail Trim & Filing">Nail Trim & Filing</option>
+                    <option value="Tooth Brushing">Tooth Brushing (excluding product)</option>
+                    <option value="Mouth Wash">Mouth Wash</option>
+                    <option value="Tear Stain Removal">Tear Stain Removal</option>
+                    <option value="Frontline Application">Frontline Application (excluding product)</option>
+                </optgroup>
             </select>
-
+    
+            <!-- Contact Information -->
             <label for="phoneNumber">Phone Number:</label>
             <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
-
+    
             <label for="emailAddress">Email Address:</label>
             <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required>
-
+    
+            <!-- Appointment Date -->
             <label for="appointmentDate">Appointment Date:</label>
             <input type="date" id="appointmentDate" name="appointmentDate" required>
-
+    
             <label for="notes">Additional Notes (optional):</label>
             <textarea id="notes" name="notes" rows="4" placeholder="Add any extra details..."></textarea>
-
+    
             <button type="submit">Book Appointment</button>
         </form>
     </div>
-
-    <!-- Services and Prices -->
-    <div class="container" id="servicesContainer">
-        <h2>Services &amp; Pricing</h2>
-
-        <!-- Royal Grooming -->
-        <h3>Royal Grooming</h3>
-        <p>Bath and Blowdry, Nail Trimming, Ear Cleaning, Basic Cut, Teeth Brushing</p>
-        <ul>
-            <li><strong>Small (1.0kg - 6.9kg):</strong> 550</li>
-            <li><strong>Medium (7.0kg - 9.9kg):</strong> 650</li>
-            <li><strong>Large (10.0kg - 15.9kg):</strong> 800</li>
-            <li><strong>Extra Large (16.0kg - 40.0kg):</strong> 975</li>
-        </ul>
-
-        <!-- Bath & Blow Dry -->
-        <h3>Bath &amp; Blow Dry</h3>
-        <ul>
-            <li><strong>Small (1.0kg - 6.9kg):</strong> 300</li>
-            <li><strong>Medium (7.0kg - 9.9kg):</strong> 350</li>
-            <li><strong>Large (10.0kg - 15.9kg):</strong> 500</li>
-            <li><strong>Extra Large (16.0kg - 40.0kg):</strong> 650</li>
-        </ul>
-
-        <!-- Add-ons -->
-        <h3>Add-ons</h3>
-        <ul>
-            <li>Sanitary Cut: 150 - 300</li>
-            <li>Face Trim: 150 - 300</li>
-            <li>Dematting: 250 - 400</li>
-            <li>Medicated Shampoo: 100 - 250</li>
-            <li>Haircut: 300 - 600</li>
-        </ul>
-
-        <!-- Ala Carte -->
-        <h3>Ala Carte</h3>
-        <ul>
-            <li>Anal Sac: 99</li>
-            <li>Ear Cleaning: 99</li>
-            <li>Nail Trim &amp; Filing: 99</li>
-            <li>Tooth Brushing: 99</li>
-            <li>Mouth Wash: 99</li>
-            <li>Tear Stain Removal: 99</li>
-            <li>Frontline Application (excluding product): 99</li>
-        </ul>
-
-        <!-- Boarding Services -->
-        <h3>Boarding Services</h3>
-        <ul>
-            <li>With Grooming (First 1 hour stay): FREE</li>
-            <li>Succeeding Hours (with grooming): 50/hr</li>
-            <li>Without Grooming (1st hour): 100</li>
-            <li>Without Grooming (Succeeding hours): 80/hr</li>
-            <li>8 Hour Package: 500</li>
-        </ul>
-    </div>
-
+    
     <!-- Confirmation Card -->
     <div class="card" id="confirmationCard">
         <h2>Appointment Confirmed!</h2>
