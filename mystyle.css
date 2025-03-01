@@ -1,144 +1,155 @@
 /* General Styles */
-* {
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F9F4EC;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: #F9F4EC; /* Light cream background */
     color: #333;
-    padding: 20px;
-    line-height: 1.6;
 }
 
 /* Header */
 .header {
-    background-color: #f77b19;
+    background-color: #BB6509;
     color: white;
     padding: 20px;
     text-align: center;
-    border-radius: 8px;
-    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 15px;
 }
 
 .logo {
     width: 80px;
     height: auto;
-    border-radius: 50%;
+    margin-right: 15px;
 }
 
 .title-container h1 {
+    margin: 0;
     font-size: 2.5rem;
-    margin-bottom: 5px;
 }
 
 .tagline {
+    margin: 0;
     font-size: 1rem;
     font-style: italic;
 }
 
-/* Booking Form */
+/* Container */
 .container {
-    background: white;
+    background-color: white;
+    max-width: 800px;
+    margin: 30px auto;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Styling */
 h2 {
+    color: #BB6509;
     text-align: center;
-    color: #f77b19;
-    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+fieldset {
+    border: 2px solid #BB6509;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #BB6509;
+    padding: 0 10px;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
     font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
 }
 
 input, select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #BB6509;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 button {
-    background-color: #f77b19;
+    background-color: #BB6509;
     color: white;
-    padding: 12px;
-    font-size: 1rem;
+    padding: 15px;
+    font-size: 1.2rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    transition: background-0.3s;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #f77b19;
-}
-
-/* Add-Ons Section */
-h3 {
-    margin-bottom: 10px;
-    color: #f77b19;
+    background-color: #9b4f07;
 }
 
 /* Confirmation Card */
 .card {
-    background: white;
+    background-color: #F9F4EC;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    display: none;
-    text-align: left;
+    border: 2px solid #BB6509;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .card h2 {
-    text-align: center;
-    color: #f77b19;
-    margin-bottom: 20px;
+    color: #BB6509;
 }
 
-.details p {
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card ul li {
+    background-color: #fff;
+    border: 1px solid #BB6509;
+    border-radius: 5px;
+    padding: 10px;
     margin-bottom: 10px;
-    font-size: 1rem;
+    text-align: left;
 }
 
-.details strong {
-    color: #f77b19;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .logo {
-        width: 60px;
-    }
-
+@media (max-width: 600px) {
     .title-container h1 {
         font-size: 2rem;
     }
 
-    .container, .card {
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .container {
         padding: 20px;
     }
 
     button {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }

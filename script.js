@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("appointmentForm");
-    const confirmationCard = document.querySelector(".card");
-    const details = document.querySelector(".details");
+    // Reset form fields on page load to prevent auto-fill
+    document.getElementById("appointmentForm").reset();
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+    // Handle form submission
+    document.getElementById("appointmentForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
 
         // Collect form data
-        const formData = new FormData(form);
+        const formData = new FormData(this);
         const appointmentDetails = {
             ownerName: formData.get("ownerName"),
             phoneNumber: formData.get("phoneNumber"),
@@ -18,29 +18,29 @@ document.addEventListener("DOMContentLoaded", function () {
             bathBlowDry: formData.get("bathBlowDry"),
             sanitaryCut: formData.get("sanitaryCut"),
             faceTrim: formData.get("faceTrim"),
-            aLaCarte: formData.get("aLaCarte"),
             boardingServices: formData.get("boardingServices"),
         };
 
-        // Populate confirmation card with details
-        details.innerHTML = `
-            <p><strong>Owner's Name:</strong> ${appointmentDetails.ownerName}</p>
-            <p><strong>Phone Number:</strong> ${appointmentDetails.phoneNumber}</p>
-            <p><strong>Email:</strong> ${appointmentDetails.emailAddress}</p>
-            <p><strong>Pet's Name:</strong> ${appointmentDetails.petName}</p>
-            <p><strong>Pet Type:</strong> ${appointmentDetails.petType}</p>
-            <p><strong>Royal Grooming:</strong> ${appointmentDetails.royalGrooming || "None"}</p>
-            <p><strong>Bath & Blow Dry:</strong> ${appointmentDetails.bathBlowDry || "None"}</p>
-            <p><strong>Sanitary Cut:</strong> ${appointmentDetails.sanitaryCut || "None"}</p>
-            <p><strong>Face Trim:</strong> ${appointmentDetails.faceTrim || "None"}</p>
-            <p><strong>A La Carte:</strong> ${appointmentDetails.aLaCarte || "None"}</p>
-            <p><strong>Boarding Services:</strong> ${appointmentDetails.boardingServices || "None"}</p>
+        // Display confirmation card with appointment details
+        const confirmationCard = document.getElementById("confirmationCard");
+        confirmationCard.innerHTML = `
+            <div class="card">
+                <h2>Your Appointment Has Been Booked!</h2>
+                <p>Thank you, <strong>${appointmentDetails.ownerName}</strong>, for booking an appointment for <strong>${appointmentDetails.petName}</strong> (${appointmentDetails.petType}).</p>
+                <p>We will contact you at <strong>${appointmentDetails.phoneNumber}</strong> or <strong>${appointmentDetails.emailAddress}</strong> to confirm the details.</p>
+                <h3>Selected Services:</h3>
+                <ul>
+                    <li>Royal Grooming: ${appointmentDetails.royalGrooming || "None"}</li>
+                    <li>Bath & Blow Dry: ${appointmentDetails.bathBlowDry || "None"}</li>
+                    <li>Sanitary Cut: ${appointmentDetails.sanitaryCut || "None"}</li>
+                    <li>Face Trim: ${appointmentDetails.faceTrim || "None"}</li>
+                    <li>Boarding Service: ${appointmentDetails.boardingServices || "None"}</li>
+                </ul>
+            </div>
         `;
-
-        // Show confirmation card
+        
+        // Hide form and show confirmation
+        document.getElementById("appointmentForm").style.display = "none";
         confirmationCard.style.display = "block";
-
-        // Optional: Clear form after submission
-        form.reset();
     });
 });

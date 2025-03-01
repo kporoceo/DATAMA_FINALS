@@ -21,21 +21,24 @@
     <!-- Booking Form -->
     <div class="container">
         <h2>Book an Appointment</h2>
-        <form id="appointmentForm">
+        <form id="appointmentForm" autocomplete="off">
+            <!-- Hidden field to prevent autofill -->
+            <input type="text" name="fakeField" style="display: none;">
+
             <!-- Owner and Pet Information -->
             <fieldset>
                 <legend>Owner and Pet Information</legend>
                 <label for="ownerName">Owner's Name:</label>
-                <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
+                <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required autocomplete="off">
 
                 <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required autocomplete="off">
 
                 <label for="emailAddress">Email Address:</label>
-                <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required>
+                <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required autocomplete="off">
 
                 <label for="petName">Pet's Name:</label>
-                <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
+                <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required autocomplete="off">
 
                 <label for="petType">Pet Type:</label>
                 <select id="petType" name="petType" required>
@@ -51,20 +54,20 @@
                 <label for="royalGrooming">Royal Grooming:</label>
                 <select id="royalGrooming" name="royalGrooming">
                     <option value="" disabled selected>Select an option</option>
-                    <option value="Small (1.0kg - 6.9kg) - 550">Small (1.0kg - 6.9kg) - 550</option>
-                    <option value="Medium (7.0kg - 9.9kg) - 650">Medium (7.0kg - 9.9kg) - 650</option>
-                    <option value="Large (10.0kg - 15.9kg) - 800">Large (10.0kg - 15.9kg) - 800</option>
-                    <option value="Extra Large (16.0kg - 40.0kg) - 975">Extra Large (16.0kg - 40.0kg) - 975</option>
+                    <option value="Small - 550">Small (1.0kg - 6.9kg) - 550</option>
+                    <option value="Medium - 650">Medium (7.0kg - 9.9kg) - 650</option>
+                    <option value="Large - 800">Large (10.0kg - 15.9kg) - 800</option>
+                    <option value="Extra Large - 975">Extra Large (16.0kg - 40.0kg) - 975</option>
                     <option value="None">None</option>
                 </select>
 
                 <label for="bathBlowDry">Bath & Blow Dry Only:</label>
                 <select id="bathBlowDry" name="bathBlowDry">
                     <option value="" disabled selected>Select an option</option>
-                    <option value="Small (1.0kg - 6.9kg) - 300">Small (1.0kg - 6.9kg) - 300</option>
-                    <option value="Medium (7.0kg - 9.9kg) - 350">Medium (7.0kg - 9.9kg) - 350</option>
-                    <option value="Large (10.0kg - 15.9kg) - 500">Large (10.0kg - 15.9kg) - 500</option>
-                    <option value="Extra Large (16.0kg - 40.0kg) - 650">Extra Large (16.0kg - 40.0kg) - 650</option>
+                    <option value="Small - 300">Small (1.0kg - 6.9kg) - 300</option>
+                    <option value="Medium - 350">Medium (7.0kg - 9.9kg) - 350</option>
+                    <option value="Large - 500">Large (10.0kg - 15.9kg) - 500</option>
+                    <option value="Extra Large - 650">Extra Large (16.0kg - 40.0kg) - 650</option>
                     <option value="None">None</option>
                 </select>
             </fieldset>
@@ -110,9 +113,9 @@
     </div>
 
     <!-- Confirmation Card -->
-    <div class="container">
+    <div class="container" id="confirmationCard" style="display: none;">
         <div class="card">
-            <h2>Appointment Confirmed!</h2>
+            <h2>Your Appointment Has Been Booked!</h2>
             <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
         </div>
     </div>
