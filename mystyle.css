@@ -1,96 +1,105 @@
-/* General styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #FFF7EC;
+    background-color: #FFF8F0;
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
-/* Header styling */
 .header {
-    background-color: #FF8000;
+    background-color: #FF8C00;
+    padding: 20px;
+    text-align: center;
     color: white;
-    padding: 20px 0;
-    text-align: center;
+}
+
+.logo-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
-}
-
-.logo {
-    height: 80px; /* Increased logo size */
-}
-
-.title-container h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-.tagline {
-    font-size: 1.2em;
-    font-style: italic;
-}
-
-/* Spacing between sections */
-.container, .confirmation-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 30px auto; /* Added space between header and form */
-}
-
-h2 {
-    color: #FF8000;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Form styling */
-form {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 15px;
 }
 
-input, select, textarea, button {
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+.title-container h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.tagline {
+    font-style: italic;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #FF8C00;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
     padding: 10px;
-    font-size: 1em;
-    border: 2px solid #FF8000;
+    margin-bottom: 20px;
+    border: 1px solid #FF8C00;
     border-radius: 5px;
 }
 
+textarea {
+    resize: none;
+    margin-bottom: 30px; /* Added extra space before the button */
+}
+
 button {
-    background-color: #FF8000;
+    background-color: #FF8C00;
     color: white;
-    font-weight: bold;
+    border: none;
+    padding: 15px;
+    width: 60%;
+    border-radius: 5px;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #e66d00;
+    background-color: #E67E22;
 }
 
-/* Confirmation card */
 .confirmation-card {
-    text-align: center;
-    margin-bottom: 50px; /* Added space after confirmation card */
-}
-
-.confirmation-card h1 {
-    color: #FF8000;
-    font-size: 2em;
+    background: white;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
-ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid #FF8000;
-    font-size: 1.1em;
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #FF8C00;
 }

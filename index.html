@@ -10,7 +10,7 @@
     <!-- Header -->
     <header class="header">
         <div class="logo-container">
-            <img src="petkingdom logo.png" alt="PET KINGDOM Logo" class="logo">
+            <img src="petkingdom_logo.png" alt="PET KINGDOM Logo" class="logo">
             <div class="title-container">
                 <h1>PET KINGDOM</h1>
                 <p class="tagline">Where Dogs And Cats Reign</p>
@@ -48,14 +48,17 @@
                 <option value="Teeth Cleaning">Teeth Cleaning</option>
             </select>
 
-            <label for="notes">Additional Notes:</label>
-            <textarea id="notes" name="notes" placeholder="Add any extra details..."></textarea>
+            <label for="notes">Additional Notes (optional):</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Add any extra details..."></textarea>
 
-            <button type="submit">Book Appointment</button>
+            <!-- Added spacing -->
+            <br><br>
+
+            <button type="submit" class="submit-button">Book Appointment</button>
         </form>
     </div>
 
-    <!-- Confirmation Section (Initially hidden) -->
+    <!-- Confirmation Section -->
     <div class="confirmation-card" id="confirmationCard" style="display: none;">
         <h1>Appointment Confirmed!</h1>
         <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
@@ -76,7 +79,6 @@
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get form values
             document.getElementById('confirmOwnerName').textContent = document.getElementById('ownerName').value;
             document.getElementById('confirmPetName').textContent = document.getElementById('petName').value;
             document.getElementById('confirmEmail').textContent = document.getElementById('email').value;
@@ -86,7 +88,6 @@
             document.getElementById('confirmService').textContent = document.getElementById('service').value;
             document.getElementById('confirmNotes').textContent = document.getElementById('notes').value || "N/A";
 
-            // Show confirmation and hide form
             document.querySelector('.container').style.display = 'none';
             document.getElementById('confirmationCard').style.display = 'block';
         });
