@@ -3,85 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Kingdom</title>
     <link rel="stylesheet" href="mystyle.css">
-    <style></style>
 </head>
 <body>
 
-    <h1>PET KINGDOM</h1>
-    <p>Where Dogs And Cats Reign</p>
-    <h2>Book a Pet Grooming Appointment</h2>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="petkingdom_transbg.png" alt="Pet Kingdom Logo" class="logo">
+            <span class="brand-name">PET KINGDOM</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <form id="appointmentForm">
-        <label for="ownerName">Owner's Name:</label>
-        <input type="text" id="ownerName" name="ownerName" required>
+    <main>
+        <section class="hero">
+            <h1>Where Dogs And Cats Reign</h1>
+            <p>Book a Pet Grooming Appointment</p>
+        </section>
 
-        <label for="petName">Pet's Name:</label>
-        <input type="text" id="petName" name="petName" required>
+        <section class="appointment-form">
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+                <label for="ownerName">Owner's Name:</label>
+                <input type="text" id="ownerName" name="ownerName" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+                <label for="petName">Pet's Name:</label>
+                <input type="text" id="petName" name="petName" required>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-        <label for="date">Appointment Date:</label>
-        <input type="date" id="date" name="date" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
 
-        <label for="time">Preferred Time:</label>
-        <input type="time" id="time" name="time" required>
+                <label for="date">Appointment Date:</label>
+                <input type="date" id="date" name="date" required>
 
-        <label for="service">Select Service:</label>
-        <select id="service" name="service">
-            <option value="bath">Bath</option>
-            <option value="haircut">Haircut</option>
-            <option value="nail-trim">Nail Trim</option>
-            <option value="full-grooming">Full Grooming Package</option>
-        </select>
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time" required>
 
-        <label for="message">Additional Notes:</label>
-        <textarea id="message" name="message" rows="4"></textarea>
+                <label for="service">Select Service:</label>
+                <select id="service" name="service">
+                    <option value="bath">Bath</option>
+                    <option value="haircut">Haircut</option>
+                    <option value="nail-trim">Nail Trim</option>
+                    <option value="full-grooming">Full Grooming Package</option>
+                </select>
 
-        <button type="submit">Book Appointment</button>
-    </form>
+                <label for="message">Additional Notes:</label>
+                <textarea id="message" name="message" rows="4"></textarea>
 
-    <div id="confirmation" style="display:none;">
-        <h2>Appointment Confirmed!</h2>
-        <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
-        <div id="confirmationDetails"></div>
-    </div>
-
-    <script>
-        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const ownerName = document.getElementById('ownerName').value;
-            const petName = document.getElementById('petName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-
-            const confirmationDetails = document.getElementById('confirmationDetails');
-            confirmationDetails.innerHTML = `
-                <p><strong>Owner's Name:</strong> ${ownerName}</p>
-                <p><strong>Pet's Name:</strong> ${petName}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Phone:</strong> ${phone}</p>
-                <p><strong>Appointment Date:</strong> ${date}</p>
-                <p><strong>Preferred Time:</strong> ${time}</p>
-                <p><strong>Service:</strong> ${service}</p>
-                <p><strong>Additional Notes:</strong> ${message}</p>
-            `;
-
-            document.getElementById('appointmentForm').style.display = 'none';
-            document.getElementById('confirmation').style.display = 'block';
-
-            console.log("Appointment Data:", { ownerName, petName, email, phone, date, time, service, message });
-        });
-    </script>
+                <button type="submit">Book Appointment</button>
+            </form>
+        </section>
+    </main>
 
 </body>
 </html>
