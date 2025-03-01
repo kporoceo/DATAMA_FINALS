@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #FFF8F0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F9F4EC;
     color: #333;
     margin: 0;
     padding: 0;
@@ -9,157 +9,139 @@ body {
 
 /* Header */
 .header {
-    background-color: #FF8C00;
+    background-color: #BB6509;
     padding: 20px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
 }
 
 .logo {
-    width: 150px;
-    height: auto;
+    height: 80px;
+    margin-right: 15px;
 }
 
 .title-container h1 {
-    margin: 0;
     font-size: 2.5rem;
+    margin: 0;
 }
 
 .tagline {
-    font-style: arial;
     font-size: 1.2rem;
+    margin: 0;
 }
 
 /* Container */
 .container {
     background: white;
-    max-width: 700px;
-    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 30px auto;
 }
 
-h2, h3 {
+h2 {
     text-align: center;
-    color: #FF8C00;
     margin-bottom: 20px;
+    color: #BB6509;
 }
 
-h3 {
-    font-size: 1.4rem;
-    margin-top: 40px;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-label {
+/* Form Styles */
+form label {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
 }
 
-input, select, textarea, button {
+form input,
+form select,
+form textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
-button {
-    background-color: #FF8C00;
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #BB6509;
+    box-shadow: 0 0 8px rgba(187, 101, 9, 0.5);
+}
+
+form button {
+    background-color: #BB6509;
     color: white;
-    font-size: 1.1rem;
     border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-0.3s;
+    width: 100%;
 }
 
-button:hover {
-    background-color: #e67e00;
+form button:hover {
+    background-color: #9A5407;
 }
 
 /* Confirmation Card */
 .card {
     display: none;
-    background: white;
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 2px solid #FF8C00;
+    background-color: white;
+    border: 2px solid #BB6509;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
 }
 
 .card h2 {
-    color: #FF8C00;
+    color: #BB6509;
     text-align: center;
-}
-
-.card p, .card ul li {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-ul li {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-}
-
-strong {
-    color: #FF8C00;
-}
-
-/* Service List Styles */
-.service-list {
-    border: 1px solid #FF8C00;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 30px;
-    background-color: #FFF5E1;
-}
-
-.service-list h3 {
-    font-size: 1.3rem;
-    color: #FF8C00;
     margin-bottom: 15px;
 }
 
-.service-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #FF8C00;
+.card ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.service-item:last-child {
+.card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.card li:last-child {
     border-bottom: none;
 }
 
-.service-name {
-    font-weight: bold;
+.card strong {
     color: #333;
 }
 
-.service-price {
-    color: #FF8C00;
-    font-weight: bold;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title-container h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .container,
+    .card {
+        padding: 20px;
+    }
 }
