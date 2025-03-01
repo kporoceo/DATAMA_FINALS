@@ -65,7 +65,43 @@
                 <button type="submit">Book Appointment</button>
             </form>
         </section>
+
+        <section id="confirmation" class="confirmation" style="display: none;">
+            <h2>Appointment Confirmed!</h2>
+            <p>Thank you for booking a pet grooming appointment. We will contact you shortly to confirm the details.</p>
+            <div id="confirmationDetails"></div>
+        </section>
     </main>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const ownerName = document.getElementById('ownerName').value;
+            const petName = document.getElementById('petName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            const confirmationDetails = document.getElementById('confirmationDetails');
+            confirmationDetails.innerHTML = `
+                <p><strong>Owner's Name:</strong> ${ownerName}</p>
+                <p><strong>Pet's Name:</strong> ${petName}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Appointment Date:</strong> ${date}</p>
+                <p><strong>Preferred Time:</strong> ${time}</p>
+                <p><strong>Service:</strong> ${service}</p>
+                <p><strong>Additional Notes:</strong> ${message}</p>
+            `;
+
+            document.querySelector('.appointment-form').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
 
 </body>
 </html>

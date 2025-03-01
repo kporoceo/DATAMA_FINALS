@@ -97,3 +97,24 @@ button {
 button:hover {
     background-color: #c86922;
 }
+
+/* Confirmation section */
+.confirmation {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #ffe8d6;
+    border: 2px solid #fa8128;
+    border-radius: 8px;
+}
+
+.confirmation h2 {
+    color: #fa8128;
+    font-size: 2rem;
+}
+
+.confirmation p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
