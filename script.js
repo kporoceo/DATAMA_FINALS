@@ -1,13 +1,13 @@
-// Get references to the form and confirmation card
 const appointmentForm = document.getElementById("appointmentForm");
 const confirmationCard = document.getElementById("confirmationCard");
 
-// Listen for form submission
 appointmentForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent the form from refreshing the page
+    e.preventDefault();
 
-    // Get form data
     const formData = new FormData(appointmentForm);
+    const queryString = new URLSearchParams(formData).toString();
+    
+    window.location.href = `confirmation.html?${queryString}`;
 
     // Collect appointment details
     const appointmentDetails = {
