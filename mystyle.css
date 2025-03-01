@@ -64,7 +64,7 @@ input, select, textarea {
 
 textarea {
     resize: none;
-    margin-bottom: 30px; /* Added extra space before the button */
+    margin-bottom: 40px; /* Adds space before the button */
 }
 
 button {
@@ -76,30 +76,10 @@ button {
     border-radius: 5px;
     font-size: 1.2rem;
     cursor: pointer;
+    display: block;
+    margin: 0 auto; /* Centers the button */
 }
 
 button:hover {
     background-color: #E67E22;
-}
-
-.confirmation-card {
-    background: white;
-    padding: 30px;
-    margin: 50px auto;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-strong {
-    color: #FF8C00;
 }
