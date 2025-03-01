@@ -19,63 +19,43 @@
     </header>
 
     <!-- Booking Form -->
-    <h2>Book an Appointment</h2>
-<form id="appointmentForm">
-  <label for="ownerName">Owner's Name:</label>
-  <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form id="appointmentForm">
+            <label for="ownerName">Owner's Name:</label>
+            <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
 
-  <label for="petName">Pet's Name:</label>
-  <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
+            <label for="petName">Pet's Name:</label>
+            <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
 
-  <label for="petType">Pet Type:</label>
-  <select id="petType" name="petType" required>
-    <option value="Dog">Dog</option>
-    <option value="Cat">Cat</option>
-    <option value="Other">Other</option>
-  </select>
+            <label for="petType">Pet Type:</label>
+            <select id="petType" name="petType" required>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Other">Other</option>
+            </select>
 
-  <!-- New Service Dropdowns -->
-  <label for="royalGrooming">Royal Grooming:</label>
-  <select id="royalGrooming" name="royalGrooming">
-    <option value="">Select a Service</option>
-    <option value="Full Groom">Full Groom</option>
-    <option value="Mini Groom">Mini Groom</option>
-  </select>
+            <label for="royalGrooming">Royal Grooming:</label>
+            <select id="royalGrooming" name="royalGrooming"></select>
 
-  <label for="bathBlowDry">Bath & Blow Dry:</label>
-  <select id="bathBlowDry" name="bathBlowDry">
-    <option value="">Select a Service</option>
-    <option value="Basic Bath">Basic Bath</option>
-    <option value="Luxury Bath">Luxury Bath</option>
-  </select>
+            <label for="bathBlowDry">Bath & Blow Dry:</label>
+            <select id="bathBlowDry" name="bathBlowDry"></select>
 
-  <label for="addOns">Add-ons:</label>
-  <select id="addOns" name="addOns">
-    <option value="">Select an Add-on</option>
-    <option value="Nail Clipping">Nail Clipping</option>
-    <option value="Teeth Cleaning">Teeth Cleaning</option>
-  </select>
+            <label for="addOns">Add-ons:</label>
+            <select id="addOns" name="addOns"></select>
 
-  <label for="aLaCarte">A La Carte:</label>
-  <select id="aLaCarte" name="aLaCarte">
-    <option value="">Select a Service</option>
-    <option value="Ear Cleaning">Ear Cleaning</option>
-    <option value="Paw Pad Treatment">Paw Pad Treatment</option>
-  </select>
+            <label for="aLaCarte">A La Carte:</label>
+            <select id="aLaCarte" name="aLaCarte"></select>
 
-  <label for="boardingServices">Boarding Services:</label>
-  <select id="boardingServices" name="boardingServices">
-    <option value="">Select a Service</option>
-    <option value="Overnight Stay">Overnight Stay</option>
-    <option value="Daycare">Daycare</option>
-  </select>
+            <label for="boardingServices">Boarding Services:</label>
+            <select id="boardingServices" name="boardingServices"></select>
 
-  <label for="phoneNumber">Phone Number:</label>
-  <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
 
-  <button type="submit">Submit</button>
-</form>
-
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <!-- Confirmation Card -->
     <div class="card" id="confirmationCard">
@@ -86,14 +66,13 @@
             <li><strong>Owner's Name:</strong> <span id="confirmOwnerName"></span></li>
             <li><strong>Pet's Name:</strong> <span id="confirmPetName"></span></li>
             <li><strong>Pet Type:</strong> <span id="confirmPetType"></span></li>
-            <li><strong>Service:</strong> <span id="confirmServiceType"></span></li>
+            <li><strong>Services Selected:</strong>
+                <p id="confirmServiceType"></p>
+            </li>
             <li><strong>Phone Number:</strong> <span id="confirmPhoneNumber"></span></li>
-            <li><strong>Email Address:</strong> <span id="confirmEmailAddress"></span></li>
-            <li><strong>Appointment Date:</strong> <span id="confirmAppointmentDate"></span></li>
-            <li><strong>Additional Notes:</strong> <span id="confirmNotes"></span></li>
         </ul>
     </div>
 
-
+    <script src="script.js"></script>
 </body>
 </html>
