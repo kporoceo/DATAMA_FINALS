@@ -22,13 +22,18 @@ const serviceData = {
         "Frontline Application - 99"
     ],
     "Boarding Services": [
-        "If with grooming (free 1 hour stay) succeeding hours 50/hour",
-        "Without grooming 1st HR 100, Succeeding 80/hour",
+        "With Grooming - 50/hr",
+        "Without Grooming - 100",
         "8 Hour Package - 500"
     ]
 };
 
-// Populate dropdowns
+// Populate dropdowns on page load
+document.addEventListener("DOMContentLoaded", function () {
+    populateDropdowns();
+});
+
+// Function to populate service dropdowns
 function populateDropdowns() {
     populateServices("Royal Grooming", document.getElementById("royalGrooming"));
     populateServices("Bath & Blow Dry", document.getElementById("bathBlowDry"));
@@ -47,35 +52,70 @@ function populateServices(category, selectElement) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", populateDropdowns);
-
+// Form submission handling
 document.getElementById("appointmentForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const totalPrice = calculateTotalPrice(
-        this.royalGrooming.value,
-        this.bathBlowDry.value,
-        this.aLaCarte.value,
-        this.boardingServices.value
-    );
+    // Collect form data
+    const ownerName = this.ownerName.value.trim();
+    const petName = this.petName.value.trim();
+    const petType = this.petType.value;
+    const phoneNumber = this.phoneNumber.value.trim();
+    const emailAddress = this.emailAddress.value.trim();
 
-    document.getElementById("confirmOwnerName").textContent = this.ownerName.value;
-    document.getElementById("confirmPetName").textContent = this.petName.value;
-    document.getElementById("confirmPetType").textContent = this.petType.value;
-    document.getElementById("confirmPhoneNumber").textContent = this.phoneNumber.value;
+    const royalGrooming = this.royalGrooming.value;
+    const bathBlowDry = this.bathBlowDry.value;
+    const aLaCarte = this.aLaCarte.value;
+    const boardingServices = this.boardingServices.value;
 
-    document.getElementById("confirmServiceType").innerHTML = `
-        Royal Grooming: ${this.royalGrooming.value || "None"}<br>
-        Bath & Blow Dry: ${this.bathBlowDry.value || "None"}<br>
-        A La Carte: ${this.aLaCarte.value || "None"}<br>
-        Boarding Services: ${this.boardingServices.value || "None"}
-    `;
+    // Validate required fields
+    if (!ownerName || !petName || !phoneNumber || !emailAddress) {
+        alert("Please fill in all required fields.");
+        return;
+    }
 
-    document.getElementById("confirmTotalPrice").textContent = `Total Price: PHP ${totalPrice}`;
-    document.getElementById("confirmationCard").style.display = "block";
+    // Calculate total price
+    const totalPrice = calculateTotalPrice(royalGrooming, bathBlowDry, aLaCarte, boardingServices);
+
+    // Display confirmation card
+    displayConfirmation({
+        ownerName,
+        petName,
+        petType,
+        phoneNumber,
+        emailAddress,
+        royalGrooming,
+        bathBlowDry,
+        aLaCarte,
+        boardingServices,
+        totalPrice
+    });
 });
 
-function calculateTotalPrice(royalGrooming, bathBlowDry, aLaCarte, boardingServices) {
-    const getPrice = service => parseInt(service.split(" - ").pop()) || 0;
-    return getPrice(royalGrooming) + getPrice(bathBlowDry) + getPrice(aLaCarte) + getPrice(boardingServices);
+// Calculate total price from selected services
+function calculateTotalPrice(...services) {
+    return services.reduce((total, service) => {
+        const price = parseInt(service.split(" - ").pop()) || 0;
+        return total + price;
+    }, 0);
+}
+
+// Display the confirmation card
+function displayConfirmation(data) {
+    document.getElementById("confirmOwnerName").textContent = data.ownerName;
+    document.getElementById("confirmPetName").textContent = data.petName;
+    document.getElementById("confirmPetType").textContent = data.petType;
+    document.getElementById("confirmPhoneNumber").textContent = data.phoneNumber;
+    document.getElementById("confirmEmailAddress").textContent = data.emailAddress;
+
+    document.getElementById("confirmServiceType").innerHTML = `
+        <strong>Royal Grooming:</strong> ${data.royalGrooming || "None"}<br>
+        <strong>Bath & Blow Dry:</strong> ${data.bathBlowDry || "None"}<br>
+        <strong>A La Carte:</strong> ${data.aLaCarte || "None"}<br>
+        <strong>Boarding Services:</strong> ${data.boardingServices || "None"}
+    `;
+
+    document.getElementById("confirmTotalPrice").textContent = `Total Price: PHP ${data.totalPrice}`;
+
+    document.getElementById("confirmationCard").style.display = "block";
 }

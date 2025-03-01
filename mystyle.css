@@ -45,6 +45,7 @@ body {
     padding: 30px;
     max-width: 600px;
     margin: 30px auto;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 h2 {
@@ -58,6 +59,7 @@ form label {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
+    color: #BB6509;
 }
 
 form input,
@@ -74,11 +76,12 @@ form button {
     background-color: #BB6509;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 15px;
     font-size: 1.2rem;
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
+    transition: background-color 0.3s;
 }
 
 form button:hover {
@@ -94,11 +97,14 @@ form button:hover {
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .card h2 {
     color: #BB6509;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .card ul {
@@ -117,4 +123,27 @@ form button:hover {
 
 .card strong {
     color: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
