@@ -21,7 +21,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
     document.getElementById('confirmAppointmentDate').textContent = appointmentDate;
     document.getElementById('confirmNotes').textContent = notes;
 
-    // Show confirmation card and hide form
+    // Hide form, show confirmation
     document.getElementById('formContainer').style.display = 'none';
     document.getElementById('confirmationCard').style.display = 'block';
 });
