@@ -12,6 +12,20 @@ const serviceData = {
         "Large (10.0kg - 15.9kg) - 500",
         "Extra Large (16.0kg - 40.0kg) - 650"
     ],
+    "Sanitary Cut": [
+        "None - 0",
+        "Small - 150",
+        "Medium - 200",
+        "Large - 250",
+        "Extra Large - 300"
+    ],
+    "Face Trim": [
+        "None - 0",
+        "Small - 150",
+        "Medium - 200",
+        "Large - 250",
+        "Extra Large - 300"
+    ],
     "A La Carte": [
         "Anal Sac - 99",
         "Ear Cleaning - 99",
@@ -22,6 +36,7 @@ const serviceData = {
         "Frontline Application - 99"
     ],
     "Boarding Services": [
+        "None - 0",
         "With Grooming - 50/hr",
         "Without Grooming - 100",
         "8 Hour Package - 500"
@@ -37,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
 function populateDropdowns() {
     populateServices("Royal Grooming", document.getElementById("royalGrooming"));
     populateServices("Bath & Blow Dry", document.getElementById("bathBlowDry"));
+    populateServices("Sanitary Cut", document.getElementById("sanitaryCut"));
+    populateServices("Face Trim", document.getElementById("faceTrim"));
     populateServices("A La Carte", document.getElementById("aLaCarte"));
     populateServices("Boarding Services", document.getElementById("boardingServices"));
 }
@@ -65,6 +82,8 @@ document.getElementById("appointmentForm").addEventListener("submit", function (
 
     const royalGrooming = this.royalGrooming.value;
     const bathBlowDry = this.bathBlowDry.value;
+    const sanitaryCut = this.sanitaryCut.value;
+    const faceTrim = this.faceTrim.value;
     const aLaCarte = this.aLaCarte.value;
     const boardingServices = this.boardingServices.value;
 
@@ -75,7 +94,7 @@ document.getElementById("appointmentForm").addEventListener("submit", function (
     }
 
     // Calculate total price
-    const totalPrice = calculateTotalPrice(royalGrooming, bathBlowDry, aLaCarte, boardingServices);
+    const totalPrice = calculateTotalPrice(royalGrooming, bathBlowDry, sanitaryCut, faceTrim, aLaCarte, boardingServices);
 
     // Display confirmation card
     displayConfirmation({
@@ -86,6 +105,8 @@ document.getElementById("appointmentForm").addEventListener("submit", function (
         emailAddress,
         royalGrooming,
         bathBlowDry,
+        sanitaryCut,
+        faceTrim,
         aLaCarte,
         boardingServices,
         totalPrice
@@ -95,6 +116,7 @@ document.getElementById("appointmentForm").addEventListener("submit", function (
 // Calculate total price from selected services
 function calculateTotalPrice(...services) {
     return services.reduce((total, service) => {
+        if (!service || service === "None - 0") return total;
         const price = parseInt(service.split(" - ").pop()) || 0;
         return total + price;
     }, 0);
@@ -102,20 +124,23 @@ function calculateTotalPrice(...services) {
 
 // Display the confirmation card
 function displayConfirmation(data) {
-    document.getElementById("confirmOwnerName").textContent = data.ownerName;
-    document.getElementById("confirmPetName").textContent = data.petName;
-    document.getElementById("confirmPetType").textContent = data.petType;
-    document.getElementById("confirmPhoneNumber").textContent = data.phoneNumber;
-    document.getElementById("confirmEmailAddress").textContent = data.emailAddress;
+    alert(`
+        Appointment Summary:
+        -------------------------
+        Owner's Name: ${data.ownerName}
+        Pet's Name: ${data.petName}
+        Pet Type: ${data.petType}
+        Phone Number: ${data.phoneNumber}
+        Email Address: ${data.emailAddress}
 
-    document.getElementById("confirmServiceType").innerHTML = `
-        <strong>Royal Grooming:</strong> ${data.royalGrooming || "None"}<br>
-        <strong>Bath & Blow Dry:</strong> ${data.bathBlowDry || "None"}<br>
-        <strong>A La Carte:</strong> ${data.aLaCarte || "None"}<br>
-        <strong>Boarding Services:</strong> ${data.boardingServices || "None"}
-    `;
+        Selected Services:
+        - Royal Grooming: ${data.royalGrooming || "None"}
+        - Bath & Blow Dry: ${data.bathBlowDry || "None"}
+        - Sanitary Cut: ${data.sanitaryCut || "None"}
+        - Face Trim: ${data.faceTrim || "None"}
+        - A La Carte: ${data.aLaCarte || "None"}
+        - Boarding Services: ${data.boardingServices || "None"}
 
-    document.getElementById("confirmTotalPrice").textContent = `Total Price: PHP ${data.totalPrice}`;
-
-    document.getElementById("confirmationCard").style.display = "block";
+        Total Price: PHP ${data.totalPrice}
+    `);
 }
