@@ -51,6 +51,30 @@ appointmentForm.addEventListener("submit", function (e) {
         console.log('Data inserted successfully!');
     }
 
+    //Displaying appointments
+    async function displayAppointments() {
+        const sessionId = localStorage.getItem('session_id');
+        if (!sessionId) {
+          console.error('Session ID not found.');
+          return;
+        }
+      
+        const { data, error } = await supabase
+          .from('appointments')
+          .select('*')
+          .headers({ 'session_id': sessionId });
+      
+        if (error) {
+          console.error('Error fetching appointments:', error);
+          return;
+        }
+      
+        // Process and display the data
+        console.log('Appointments:', data);
+        // ... your code to display the appointments on the page ...
+      }
+      
+
     // Generate confirmation message
     confirmationCard.innerHTML = `
         <div class="card">
