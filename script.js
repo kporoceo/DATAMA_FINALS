@@ -14,6 +14,13 @@ appointmentForm.addEventListener("submit", function (e) {
     
     window.location.href = `confirmation.html?${queryString}`;
 
+    // Generate session_id and store it in local storage
+      let sessionId = localStorage.getItem('session_id');
+      if (!sessionId) {
+          sessionId = uuidv4();
+          localStorage.setItem('session_id', sessionId);
+      }
+
     // Collect appointment details
     const appointmentDetails = {
         ownerName: formData.get("ownerName"),
@@ -43,7 +50,7 @@ appointmentForm.addEventListener("submit", function (e) {
     } else {
         console.log('Data inserted successfully!');
     }
-    
+
     // Generate confirmation message
     confirmationCard.innerHTML = `
         <div class="card">
