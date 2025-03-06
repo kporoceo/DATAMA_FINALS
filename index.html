@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Kingdom - Book an Appointment</title>
     <link rel="stylesheet" href="mystyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,23 +24,22 @@
     <div class="container">
         <h2>Book an Appointment</h2>
         <form id="appointmentForm" autocomplete="off">
-            <!-- Hidden field to prevent autofill -->
             <input type="text" name="fakeField" style="display: none;">
 
             <!-- Owner and Pet Information -->
             <fieldset>
                 <legend>Owner and Pet Information</legend>
                 <label for="ownerName">Owner's Name:</label>
-                <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required autocomplete="off">
+                <input type="text" id="ownerName" name="ownerName" placeholder="Enter your name" required>
 
                 <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required autocomplete="off">
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
 
                 <label for="emailAddress">Email Address:</label>
-                <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required autocomplete="off">
+                <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required>
 
                 <label for="petName">Pet's Name:</label>
-                <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required autocomplete="off">
+                <input type="text" id="petName" name="petName" placeholder="Enter your pet's name" required>
 
                 <label for="petType">Pet Type:</label>
                 <select id="petType" name="petType" required>
@@ -51,6 +52,7 @@
             <!-- Grooming Services -->
             <fieldset>
                 <legend>Grooming Services</legend>
+                
                 <label for="royalGrooming">Royal Grooming:</label>
                 <select id="royalGrooming" name="royalGrooming">
                     <option value="" disabled selected>Select an option</option>
@@ -72,62 +74,30 @@
                 </select>
             </fieldset>
 
-            <!-- Add-Ons -->
-            <!-- Add-Ons -->
-<fieldset>
-    <legend>Add-Ons for Bath and Blow</legend>
+            <!-- Optional Add-Ons -->
+            <fieldset>
+                <legend>Optional Add-Ons</legend>
 
-    <label for="sanitaryCut">Sanitary Cut:</label>
-    <select id="sanitaryCut" name="sanitaryCut">
-        <option value="" disabled selected>Select an option</option>
-        <option value="Small - 150">Small (1.0kg - 6.9kg) - 150</option>
-        <option value="Medium - 200">Medium (7.0kg - 9.9kg) - 200</option>
-        <option value="Large - 250">Large (10.0kg - 15.9kg) - 250</option>
-        <option value="Extra Large - 300">Extra Large (16.0kg - 40.0kg) - 300</option>
-        <option value="None">None</option>
-    </select>
+                <label for="dematting">Dematting:</label>
+                <select id="dematting" name="dematting">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Small - 350">Small (1.0kg - 6.9kg) - 350</option>
+                    <option value="Medium - 450">Medium (7.0kg - 9.9kg) - 450</option>
+                    <option value="Large - 550">Large (10.0kg - 15.9kg) - 550</option>
+                    <option value="Extra Large - 700">Extra Large (16.0kg - 40.0kg) - 700</option>
+                    <option value="None">None</option>
+                </select>
 
-    <label for="faceTrim">Face Trim:</label>
-    <select id="faceTrim" name="faceTrim">
-        <option value="" disabled selected>Select an option</option>
-        <option value="Small - 150">Small (1.0kg - 6.9kg) - 150</option>
-        <option value="Medium - 200">Medium (7.0kg - 9.9kg) - 200</option>
-        <option value="Large - 250">Large (10.0kg - 15.9kg) - 250</option>
-        <option value="Extra Large - 300">Extra Large (16.0kg - 40.0kg) - 300</option>
-        <option value="None">None</option>
-    </select>
-
-    <label for="dematting">Dematting:</label>
-    <select id="dematting" name="dematting">
-        <option value="" disabled selected>Select an option</option>
-        <option value="Small - 350">Small (1.0kg - 6.9kg) - 350</option>
-        <option value="Medium - 450">Medium (7.0kg - 9.9kg) - 450</option>
-        <option value="Large - 550">Large (10.0kg - 15.9kg) - 550</option>
-        <option value="Extra Large - 700">Extra Large (16.0kg - 40.0kg) - 700</option>
-        <option value="None">None</option>
-    </select>
-
-    <label for="medicatedShampoo">Medicated Shampoo:</label>
-    <select id="medicatedShampoo" name="medicatedShampoo">
-        <option value="" disabled selected>Select an option</option>
-        <option value="Small - 250">Small (1.0kg - 6.9kg) - 250</option>
-        <option value="Medium - 350">Medium (7.0kg - 9.9kg) - 350</option>
-        <option value="Large - 450">Large (10.0kg - 15.9kg) - 450</option>
-        <option value="Extra Large - 600">Extra Large (16.0kg - 40.0kg) - 600</option>
-        <option value="None">None</option>
-    </select>
-
-    <label for="haircut">Haircut:</label>
-    <select id="haircut" name="haircut">
-        <option value="" disabled selected>Select an option</option>
-        <option value="Small - 400">Small (1.0kg - 6.9kg) - 400</option>
-        <option value="Medium - 500">Medium (7.0kg - 9.9kg) - 500</option>
-        <option value="Large - 650">Large (10.0kg - 15.9kg) - 650</option>
-        <option value="Extra Large - 800">Extra Large (16.0kg - 40.0kg) - 800</option>
-        <option value="None">None</option>
-    </select>
-</fieldset>
-
+                <label for="medicatedShampoo">Medicated Shampoo:</label>
+                <select id="medicatedShampoo" name="medicatedShampoo">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Small - 250">Small (1.0kg - 6.9kg) - 250</option>
+                    <option value="Medium - 350">Medium (7.0kg - 9.9kg) - 350</option>
+                    <option value="Large - 450">Large (10.0kg - 15.9kg) - 450</option>
+                    <option value="Extra Large - 600">Extra Large (16.0kg - 40.0kg) - 600</option>
+                    <option value="None">None</option>
+                </select>
+            </fieldset>
 
             <!-- Boarding Services -->
             <fieldset>
@@ -145,7 +115,6 @@
         </form>
     </div>
 
-    <!-- Confirmation Card -->
     <div class="container" id="confirmationCard" style="display: none;">
         <div class="card">
             <h2>Your Appointment Has Been Booked!</h2>
