@@ -1,57 +1,55 @@
+const supabaseUrl = 'https://zstptnblkfdpjnmvgeng.supabase.co'; 
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpzdHB0bmJsa2ZkcGpubXZnZW5nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDExNjg0ODYsImV4cCI6MjA1Njc0NDQ4Nn0.q78LYNBD6hApZnR7OpnCz4swAnEJNwx4-sYClwY6SQg';
+
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+if (!supabase) {
+    console.error("Failed to initialize Supabase.");
+}
+
 const appointmentForm = document.getElementById("appointmentForm");
-const confirmationCard = document.getElementById("confirmationCard");
 
-const supabaseUrl = 'Yhttps://snfhnftwtelgsupzdiyy.supabase.co'; 
-const supabaseAnonKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNuZmhuZnR3dGVsZ3N1cHpkaXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2NDEyOTcsImV4cCI6MjA1NjIxNzI5N30.oeO5sBmZx3Fk_VOrhp4w60-uax9_40oik55AYTZ6rIU; 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+if (appointmentForm) {
+    appointmentForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-appointmentForm.addEventListener("submit", async function (e) { 
-    e.preventDefault();
+        const formData = new FormData(appointmentForm);
+        const appointmentDetails = {
+            id: crypto.randomUUID(), 
+            ownerName: formData.get("ownerName"),
+            phoneNumber: formData.get("phoneNumber"),
+            emailAddress: formData.get("emailAddress"),
+            petName: formData.get("petName"),
+            petType: formData.get("petType"),
+            royalGrooming: formData.get("royalGrooming") || "None",
+            bathBlowDry: formData.get("bathBlowDry") || "None",
+            dematting: formData.get("dematting") || "None",
+            medicatedShampoo: formData.get("medicatedShampoo") || "None",
+            boardingServices: formData.get("boardingServices") || "None",
+            createdAt: new Date().toISOString(),
+        };
 
-    const formData = new FormData(appointmentForm);
+        try {
+            const { data, error } = await supabase
+                .from("appointments")
+                .insert([appointmentDetails]);
 
-    const appointmentDetails = {
-        ownerName: formData.get("ownerName"),
-        phoneNumber: formData.get("phoneNumber"),
-        emailAddress: formData.get("emailAddress"),
-        petName: formData.get("petName"),
-        petType: formData.get("petType"),
-        royalGrooming: formData.get("royalGrooming"),
-        bathBlowDry: formData.get("bathBlowDry"),
-        dematting: formData.get("dematting"),
-        medicatedShampoo: formData.get("medicatedShampoo"),
-        boardingServices: formData.get("boardingServices"),
-    };
+            if (error) {
+                console.error("Error booking appointment:", error);
+                alert("There was an error booking your appointment. Please try again.");
+                return;
+            }
 
-    const { error } = await supabase
-        .from('appointments')
-        .insert([appointmentDetails]);
-
-    if (error) {
-        console.error('Error inserting data:', error);
-        alert("There was an error submitting your appointment. Please try again.");
-        return;
-    } else {
-        console.log('Data inserted successfully!');
-        alert("Appointment booked successfully!");
-    }
-
-    confirmationCard.innerHTML = `
-        <div class="card">
-            <h2>Your Appointment Has Been Booked!</h2>
-            <p>Thank you, <strong>${appointmentDetails.ownerName}</strong>, for booking an appointment for <strong>${appointmentDetails.petName}</strong> (${appointmentDetails.petType}).</p>
-            <p>We will contact you at <strong>${appointmentDetails.phoneNumber}</strong> or <strong>${appointmentDetails.emailAddress}</strong> to confirm the details.</p>
-            <h3>Selected Services:</h3>
-            <ul>
-                <li>Royal Grooming: ${appointmentDetails.royalGrooming || "None"}</li>
-                <li>Bath & Blow Dry: ${appointmentDetails.bathBlowDry || "None"}</li>
-                <li>Dematting: ${appointmentDetails.dematting || "None"}</li>
-                <li>Medicated Shampoo: ${appointmentDetails.medicatedShampoo || "None"}</li>
-                <li>Boarding Service: ${appointmentDetails.boardingServices || "None"}</li>
-            </ul>
-        </div>
-    `;
-
-    confirmationCard.style.display = "block";
-    appointmentForm.reset();
-});
+            const queryString = new URLSearchParams(
+                Object.fromEntries(Object.entries(appointmentDetails).map(([k, v]) => [k, encodeURIComponent(v)])
+                )
+            ).toString();
+            window.location.href = `confirmation.html?${queryString}`;
+        } catch (err) {
+            console.error("Unexpected error:", err);
+            alert("An unexpected error occurred. Please try again.");
+        }
+    });
+} else {
+    console.error("appointmentForm not found. Ensure your form has the correct ID.");
+}
